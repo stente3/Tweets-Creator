@@ -7,7 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Font -->
     <link href="https://fonts.googleapis.com/css2?family=Glory:wght@400;600&display=swap" rel="stylesheet">
-    <!-- Css -->
+    <!-- Normalize to keep the code similar in all browsers -->
+    <link rel="stylesheet" href="./css/normalize.css">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="./img/favicon.svg" type="image/x-icon">
+    <!-- My Css -->
     <link rel="stylesheet" href="./css/style.css">
     <title>Tweets Creator</title>
   </head>
@@ -16,15 +20,15 @@
     <main class="main">
       <!-- Form -->
       <form action="#">
-        <label for="tweet">Tweet:</label>
-        <textarea id="tweet" cols="30" rows="10"></textarea>
-        <input type="button" value="Agregar">
+        <label class="form__label" for="tweet">Tweet:</label>
+        <textarea class="form__text" id="tweet" cols="30" rows="10"></textarea>
+        <input class="form__button" type="button" value="Agregar">
       </form>
       <!-- Container Tweets -->
       <div class="container__tweets">
-        <h2>Mis Tweets</h2>
-        <ul>
-          
+        <h2 class="tweets__header">Mis Tweets</h2>
+        <ul class="tweets__list">
+
         </ul>
       </div>
     </main>
