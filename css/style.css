@@ -1,0 +1,23 @@
+/* responsive web desing */ 
+html{ 
+    font-size:62.5%; 
+    box-sizing:border-box; 
+} 
+body{
+    font-size:16px; /* 1rem = 10px */ 
+} 
+ /* model box */ 
+*,*:before,*:after{ 
+    box-sizing:inherit; 
+}
+/* Variables */
+:root{
+    --weight-weak: 400;
+    --weight-strong: 600;
+    --button: #0CECDD;
+}
+/* headings */
+h1, h2{
+    font-family: 'Glory', sans-serif;
+    font-weight: var(--weight-weak);
+}
