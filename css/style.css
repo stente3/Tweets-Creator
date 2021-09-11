@@ -1,23 +1,55 @@
-/* responsive web desing */ 
+/* Variables */
+:root{
+    --font-family: 'Glory', sans-serif;
+    --weight-strong: 600;
+    --button: #0d6efd;
+    --weight-weak: 400;
+}
+/* Responsive web desing */ 
 html{ 
     font-size:62.5%; 
     box-sizing:border-box; 
 } 
 body{
     font-size:16px; /* 1rem = 10px */ 
+    font-family: var(--font-family);
 } 
- /* model box */ 
+ /* Model box */
 *,*:before,*:after{ 
     box-sizing:inherit; 
 }
-/* Variables */
-:root{
-    --weight-weak: 400;
-    --weight-strong: 600;
-    --button: #0CECDD;
-}
 /* headings */
 h1, h2{
-    font-family: 'Glory', sans-serif;
     font-weight: var(--weight-weak);
+    text-align: center;
+    margin: 1rem auto;
+}
+/* Form */
+.form__label{
+    font-weight: var(--weight-strong);
+    margin-bottom: 1rem;
+    text-align: center;
+    display: block;
+}
+.form__text{
+    width: 98%;
+    margin: 0 auto;
+    display: block;
+}
+.form__button{
+    background-color: var(--button);
+    text-transform: uppercase;
+    border-radius: .5rem;
+    padding: .7rem 2rem;
+    margin: .5rem auto;
+    font-size: 1.3rem;
+    cursor: pointer;
+    color: white;
+    display: block;
+    border: none;
+    width: 97%;
+}
+/* Section tweets */
+.new__item{
+   margin: 1rem auto
 }
