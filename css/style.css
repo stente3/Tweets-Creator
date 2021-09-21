@@ -24,9 +24,14 @@ h1, h2{
     text-align: center;
     margin: 1rem auto;
 }
+/* Utilities */
+.d-none{
+    display: none;
+}
 /* Form */
 .form__label{
     font-weight: var(--weight-strong);
+    font-size: 1.8rem;
     margin-bottom: 1rem;
     text-align: center;
     display: block;
@@ -39,11 +44,11 @@ h1, h2{
 .form__button{
     background-color: var(--button);
     text-transform: uppercase;
-    font-weight: 600;
     border-radius: .5rem;
-    padding: .7rem 2rem;
+    padding: 1.1rem 2rem;
     margin: .5rem auto;
-    font-size: 1.3rem;
+    font-size: 1.35rem;
+    font-weight: 600;
     cursor: pointer;
     color: white;
     display: block;
@@ -51,8 +56,37 @@ h1, h2{
     width: 97%;
 }
 /* Section tweets */
+.tweets__list{
+    margin: 0 auto;
+    list-style:none;
+    width: 95%;
+    padding: 0;
+}
 .new__item{
-   margin: 1rem auto;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2rem auto;
+    display: flex;
+}
+.item__img{
+    content: url(/img/x.svg);
+    cursor: pointer;
+    margin-left: 1rem;
+}
+/* Error alert */
+.alert{
+    background-color: red;
+    font-weight: var(--weight-strong);
+    border-radius: .2rem;
+    text-align: center;
+    margin: 1rem auto;
+    padding: .5rem;
+    width: 98%;
+}
+.alert__paragraph{
+    text-transform: uppercase;
+    font-size: 1.35rem;
+    color: white;
 }
 /* Desktop */
 @media (min-width: 768px) { 
@@ -71,4 +105,11 @@ h1, h2{
     .form__button{
         width: 99%;
     }
+    .alert{
+        width: 65%;
+    }
+    .tweets__list{
+        max-width: 90%;
+        margin: 0 auto;
+    }   
 }
