@@ -30,6 +30,7 @@ function getTweets() {
     form.reset();
     formTweets.focus();
     addHtml(tweetObj);
+    removeContent()
 }
 function addHtml(tweetObj) {
     let newTweet = document.createElement("li");
@@ -37,4 +38,13 @@ function addHtml(tweetObj) {
     newTweet.setAttribute("id", tweetObj.id);
     newTweet.innerHTML =  `${tweetObj.value}<span class="item__img"></span>`;
     tweetsList.appendChild(newTweet);
+}
+function removeContent(element) {
+    let hola = document.querySelectorAll(".item__img").forEach((item) =>{
+        item.addEventListener("click", (e) =>{
+            let nene = parseInt(e.target.parentElement.getAttribute("id"));
+            e.target.parentElement.remove();    
+            return tweets = tweets.filter(tweet => tweet.id !== nene);
+        })
+    })
 }
