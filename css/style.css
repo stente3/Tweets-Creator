@@ -72,6 +72,7 @@ h1, h2{
     content: url(/img/x.svg);
     cursor: pointer;
     margin-left: 1rem;
+    user-select: none;
 }
 /* Error alert */
 .alert{

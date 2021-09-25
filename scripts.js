@@ -6,9 +6,16 @@ const tweetsList = document.querySelector(".tweets__list");
 const ErrorAlert = document.querySelector(".alert");
 let tweets = [];
 
-//Event Listeners
-formButton.addEventListener("click", validator);
+formTweets.focus();
 
+//Event Listeners
+document.addEventListener("DOMContentLoaded", () =>{
+    tweets = JSON.parse(localStorage.getItem("tweets")) || [];
+    addHtml(tweets);
+    getTweets();
+    removeContent();
+})
+formButton.addEventListener("click", validator);
 
 //Funtions
 function validator() {
@@ -22,29 +29,47 @@ function validator() {
     }
 }
 function getTweets() {
-    let tweetObj = {
-        value: formTweets.value,
-        id: Date.now()
+    if(formTweets.value !== ""){
+        let tweetObj = {
+            value: formTweets.value,
+            id: Date.now()
+        }
+        tweets = [...tweets, tweetObj];
+        form.reset();
+        formTweets.focus();
+        localStorage.setItem("tweets", JSON.stringify(tweets));
+        addHtml(tweets);
+        removeContent();
     }
-    tweets = [...tweets, tweetObj];
-    form.reset();
-    formTweets.focus();
-    addHtml(tweetObj);
-    removeContent()
 }
-function addHtml(tweetObj) {
-    let newTweet = document.createElement("li");
-    newTweet.classList.add("new__item");
-    newTweet.setAttribute("id", tweetObj.id);
-    newTweet.innerHTML =  `${tweetObj.value}<span class="item__img"></span>`;
-    tweetsList.appendChild(newTweet);
+/* Add an element to html */
+function addHtml(tweet) {
+    resetItems();
+    if(tweetsList.children.length === 0){
+        tweet.forEach((item) =>{
+            let newTweet = document.createElement("li");
+            newTweet.classList.add("new__item");
+            newTweet.setAttribute("id", item.id);
+            newTweet.innerHTML =  `${item.value}<span class="item__img"></span>`;
+            tweetsList.appendChild(newTweet);
+        })
+    }
 }
+/* It remove items of client's side */
+function resetItems(){
+    document.querySelectorAll(".item__img").forEach((item) =>{
+        item.parentElement.remove();
+    })
+}
+/* Add event listeners on each item */
 function removeContent(element) {
-    let hola = document.querySelectorAll(".item__img").forEach((item) =>{
+    document.querySelectorAll(".item__img").forEach((item) =>{
         item.addEventListener("click", (e) =>{
-            let nene = parseInt(e.target.parentElement.getAttribute("id"));
-            e.target.parentElement.remove();    
-            return tweets = tweets.filter(tweet => tweet.id !== nene);
+            let id = parseInt(e.target.parentElement.getAttribute("id"));
+            e.target.parentElement.remove();
+            tweets = tweets.filter(tweet => tweet.id !== id);
+            localStorage.setItem("tweets", JSON.stringify(tweets));
+            formTweets.focus();
         })
     })
 }
