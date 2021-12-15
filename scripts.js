@@ -9,7 +9,7 @@ let tweets = [];
 formTweets.focus();
 
 //Event Listeners
-document.addEventListener("DOMContentLoaded", () =>{
+document.addEventListener("DOMContentLoaded", () => {
     tweets = JSON.parse(localStorage.getItem("tweets")) || [];
     addHtml(tweets);
     getTweets();

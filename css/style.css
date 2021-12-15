@@ -28,7 +28,7 @@ h1, h2{
 .d-none{
     display: none;
 }
-/* Form */
+/* Section form */
 .form__label{
     font-weight: var(--weight-strong);
     font-size: 1.8rem;
@@ -89,7 +89,7 @@ h1, h2{
     font-size: 1.35rem;
     color: white;
 }
-/* Desktop */
+/* Responsive design */
 @media (min-width: 768px) { 
     .main{
         display: grid;
